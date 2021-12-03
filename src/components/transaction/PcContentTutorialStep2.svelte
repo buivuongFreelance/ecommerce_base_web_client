@@ -1,0 +1,110 @@
+<script>
+	import { _ } from 'svelte-i18n';
+	import ContentLoader from 'svelte-content-loader';
+
+	export let step = 0;
+
+	export let isChecked = false;
+
+	export let downloadQrCodeLink = '';
+	export let isLoading = false;
+
+	const handleNext = () => {
+		step++;
+		isChecked = false;
+	};
+</script>
+
+<div class="custom">
+	<div class="flex items-center">
+		<div class="w-25 tc relative">
+			<img
+				src="images/phone_scan_qr_code.png"
+				alt="phone_scan_qr_code"
+				class="w-100"
+			/>
+
+			<div class="image-scan flex items-center justify-center">
+				{#if isLoading}
+					<ContentLoader width="140" uniqueKey="scanYourDevice">
+						<rect x="0" y="0" rx="5" ry="5" width="140" height="140" />
+					</ContentLoader>
+				{:else if downloadQrCodeLink}
+					<div class="">
+						<div class="mb3 f7 bounce animated infinite">
+							{$_('label.scanToDownload')}
+						</div>
+						<img src={downloadQrCodeLink} alt="" width="140px" />
+					</div>
+				{/if}
+			</div>
+		</div>
+		<div class="w-75 pl6">
+			<h4>{$_('label.downloadAppForScan')}</h4>
+			<div class="mt5">
+				{$_('label.downloadAppForScanDesc')}
+			</div>
+			<div class="mt5">
+				<a class="pointer dim" href="https://apps.apple.com/ca/app/id1524735381"
+					><img src="images/apple.png" alt="apple" class="h-50-px" /></a
+				>
+
+				<a
+					class="pointer dim ml3"
+					href="https://play.google.com/store/apps/details?id=com.dingtoi.dingtoimc"
+					><img src="images/android.png" alt="android" class="h-50-px" /></a
+				>
+			</div>
+		</div>
+	</div>
+
+	<div class="mt5 relative">
+		<label class="checkbox-default">
+			<input type="checkbox" bind:checked={isChecked} />
+			<span />
+			<span class="fw6 ml3">{$_('label.confirmNextStepScanTransaction')}</span>
+		</label>
+		<img
+			src="images/hand_guide.png"
+			alt="hand_guide"
+			class="arrow-guide bounce animated infinite slower"
+		/>
+	</div>
+	<div class="flex justify-between mt5">
+		<button
+			type="button"
+			on:click={() => step--}
+			class="btn--cancel bn br2 bg-light-gray pv3 ph5 near-black pointer grow ttc fw6 mr3"
+			>{$_('device.back')}</button
+		>
+		<button
+			type="button"
+			disabled={!isChecked}
+			on:click={handleNext}
+			class="btn--primary bn br2 bg-dark-blue pv3 ph5 white pointer grow ttc fw6"
+			>{$_('message.next')}
+		</button>
+	</div>
+</div>
+
+<style>
+	.btn--primary:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.image-scan {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin: auto;
+	}
+	.arrow-guide {
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		width: 50px;
+	}
+</style>
