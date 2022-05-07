@@ -12,11 +12,12 @@
 <div class="bg-white mw-full">
 	<div class="flex justify-between mw10 center">
 		<a class="link dim flex h-70-px items-center" href="/" title="Logo">
-			<LazyImage
+			<h2>Logo</h2>
+			<!-- <LazyImage
 				src="images/com_logo_color.png"
-				alt="Dingtoi"
+				alt=""
 				width="200px"
-				height="33px" />
+				height="33px" /> -->
 		</a>
 		<PcSearch />
 		<div class="flex justify-between">

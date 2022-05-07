@@ -200,12 +200,8 @@
 						values = {
 							firstNameShip: sh ? sh.first_name : '',
 							lastNameShip: sh ? sh.last_name : '',
-							addressShip: sh ? sh.address : '',
-							phoneShip: sh ? sh.phone_number : '',
-							firstNameBill: bl ? bl.first_name : '',
-							lastNameBill: bl ? bl.last_name : '',
-							addressBill: bl ? bl.address : '',
-							phoneBill: bl ? bl.phone_number : '',
+							addressShip: sh ? sh.full_address : '',
+							phoneShip: sh ? sh.phone : '',
 						};
 					}
 
@@ -221,7 +217,7 @@
 		});
 	};
 
-	const createShipping = (objAddressShip) => {
+	const createShipping = () => {
 		isLoadingContinue = true;
 		let token = '';
 		if ($auth) {
@@ -232,22 +228,14 @@
 				token,
 				firstName: values.firstNameShip,
 				lastName: values.lastNameShip,
-				address: objAddressShip.street,
-				city: objAddressShip.city,
-				postalCode: objAddressShip.postalCode,
-				country: config.selectedCountry,
+				address: values.addressShip,
 				phoneNumber: values.phoneShip,
-				province: objAddressShip.state,
-				extension: '',
 			})
 				.then(() => {
 					detailShipping.address = values.addressShip;
-					detailShipping.city_name = objAddressShip.cityName;
 					detailShipping.firstName = values.firstNameShip;
 					detailShipping.lastName = values.lastNameShip;
 					detailShipping.phoneNumber = values.phoneShip;
-					detailShipping.postalCode = objAddressShip.postalCode;
-					detailShipping.province = objAddressShip.state;
 					detailShipping = detailShipping;
 
 					isLoadingContinue = false;
@@ -270,7 +258,7 @@
 		});
 	};
 
-	const createBilling = (objAddressShip, objAddressBill) => {
+	const createBilling = () => {
 		isLoadingContinue = true;
 		let token = '';
 		if ($auth) {
@@ -281,15 +269,8 @@
 				token,
 				firstName: isSameShipping ? values.firstNameShip : values.firstNameBill,
 				lastName: isSameShipping ? values.lastNameShip : values.lastNameBill,
-				address: isSameShipping ? objAddressShip.street : objAddressBill.street,
-				city: isSameShipping ? objAddressShip.city : objAddressBill.city,
-				postalCode: isSameShipping
-					? objAddressShip.postalCode
-					: objAddressBill.postalCode,
-				country: config.selectedCountry,
-				province: isSameShipping ? objAddressShip.state : objAddressBill.state,
+				address: isSameShipping ? values.addressShip : values.addressBill,
 				phoneNumber: isSameShipping ? values.phoneShip : values.phoneBill,
-				extension: '',
 			})
 				.then(() => {
 					isLoadingContinue = false;
@@ -491,7 +472,6 @@
 								shipments(addressSeller, [parcelShip]).then((rates) => {
 									rates = rates.reverse();
 									listConfirm[key][0].rates = rates;
-
 									if (rates.length > 0) {
 										let ratesMin = rates[0];
 										for (let i = 0; i < rates.length; i++) {
@@ -593,20 +573,20 @@
 
 				values = values;
 			}
-			await validateAddresses();
+			// await validateAddresses();
 
-			const objAddressShip = await postCanadaGetExtractDesc(
-				values.addressShip,
-				domainModel
-			);
+			// const objAddressShip = await postCanadaGetExtractDesc(
+			// 	values.addressShip,
+			// 	domainModel
+			// );
 
-			const objAddressBill = await postCanadaGetExtractDesc(
-				values.addressBill,
-				domainModel
-			);
+			// const objAddressBill = await postCanadaGetExtractDesc(
+			// 	values.addressBill,
+			// 	domainModel
+			// );
 
-			await createShipping(objAddressShip);
-			await createBilling(objAddressShip, objAddressBill);
+			await createShipping();
+			await createBilling();
 			await confirmOrder();
 			step = 2;
 			animateScroll.scrollToTop();

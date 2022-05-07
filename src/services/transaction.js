@@ -108,10 +108,12 @@ export const getShippingAndBilling = (domain, { token }) => {
 			})
 			.then((response) => {
 				const { obj } = response.data;
-				const sh = Object.assign({}, obj.shipping);
-				const bl = Object.assign({}, obj.billing);
-				obj.shipping.address = getStrAddressShip(sh);
-				obj.billing.address = getStrAddressBill(bl);
+				if (obj.shipping && obj.billing) {
+					const sh = Object.assign({}, obj.shipping);
+					const bl = Object.assign({}, obj.billing);
+					obj.shipping.address = getStrAddressShip(sh);
+					obj.billing.address = getStrAddressBill(bl);
+				}
 				resolve(obj);
 			})
 			.catch((error) => {
@@ -744,6 +746,7 @@ export const validationAddress = (domain, { token, keyword }) => {
 			)
 			.then((response) => {
 				const { Items } = response.data;
+				console.log(Items);
 				resolve(Items);
 			})
 			.catch((error) => {
@@ -899,11 +902,11 @@ export const shipments = (domain, { token, address_from, address_to, parcels }) 
 				let flag = true;
 				if (error.response) {
 					const { status } = error.response;
-					if (status === 401) {
-						flag = false;
-						auth.set(null);
-						location.reload();
-					}
+					// if (status === 401) {
+					// 	flag = false;
+					// 	auth.set(null);
+					// 	location.reload();
+					// }
 				}
 				if (flag) {
 					reject(error);

@@ -240,7 +240,7 @@
 					<h4 class="ttc tc">
 						{$_('pickup.pickupInfo')}
 					</h4>
-					<div class="tc">
+					<!-- <div class="tc">
 						<a
 							target="_blank"
 							class="tc min-w200px dib grow pointer bg-dark-blue white br2 pv3 ph2rem fw6 text-decoration-none"
@@ -248,7 +248,7 @@
 						>
 							{$_('checkout.getShippingLabel')}
 						</a>
-					</div>
+					</div> -->
 				</div>
 				{#if detail.shipping_rate_seller.selectedPickup}
 					<table class="table-default tl mt1rem">

@@ -244,7 +244,7 @@ export const listQuestionBuyerReject = (domain) => {
 export const listSettings = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
-			.get('https://192.168.10.177/api/v1/auth/currentUser', {
+			.get(domain + 'settings/listAll', {
 				timeout: 10000,
 			})
 			.then((response) => {

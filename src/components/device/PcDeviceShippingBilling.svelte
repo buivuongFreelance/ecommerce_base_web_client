@@ -98,8 +98,8 @@
 						values = {
 							firstNameShip: sh ? sh.first_name : '',
 							lastNameShip: sh ? sh.last_name : '',
-							addressShip: sh ? sh.address : '',
-							phoneShip: sh ? sh.phone_number : '',
+							addressShip: sh ? sh.full_address : '',
+							phoneShip: sh ? sh.phone : '',
 						};
 					}
 
@@ -114,7 +114,7 @@
 				});
 		});
 	};
-	const createShipping = (objAddressShip) => {
+	const createShipping = () => {
 		isLoadingCreate = true;
 		let token = '';
 		if ($auth) {
@@ -125,13 +125,13 @@
 				token,
 				firstName: values.firstNameShip,
 				lastName: values.lastNameShip,
-				address: objAddressShip.street,
-				city: objAddressShip.city,
-				postalCode: objAddressShip.postalCode,
-				country: config.selectedCountry,
+				address: values.addressShip,
+				// city: objAddressShip.city,
+				// postalCode: objAddressShip.postalCode,
+				// country: config.selectedCountry,
 				phoneNumber: values.phoneShip,
-				province: objAddressShip.state,
-				extension: '',
+				// province: objAddressShip.state,
+				// extension: '',
 			})
 				.then(() => {
 					isLoadingCreate = false;
@@ -188,12 +188,13 @@
 		try {
 			await schemaShipping.validate(values, { abortEarly: false });
 
-			const objAddressShip = await postCanadaGetExtractDesc(
-				values.addressShip,
-				domainModel
-			);
+			// const objAddressShip = await postCanadaGetExtractDesc(
+			// 	values.addressShip,
+			// 	domainModel
+			// );
 
-			await createShipping(objAddressShip);
+			// await createShipping(objAddressShip);
+			await createShipping();
 			isLoadingComplete = false;
 			onComplete();
 		} catch (error) {

@@ -49,7 +49,7 @@
 		"notfoundDesc": "uh-oh! page not found"
 	},
 	"nav": {
-		"welcome": "Welcome to the Dingtoi Marketplace",
+		"welcome": "Welcome to the Marketplace",
 		"needHelp": "Need help?",
 		"home": "Home",
 		"about": "About",
@@ -360,7 +360,7 @@
 		"ifSignInDingtoi": "If you signed in Dingtoi",
 		"scanReport": "Dingtoi scan report",
 		"viewScanReport": "View scan report",
-		"dingtoiScanReport": "Dingtoi scan report",
+		"DingtoiScanReport": "Dingtoi scan report",
 		"general": "General",
 		"connection": "Connection",
 		"network": "Network",
@@ -687,7 +687,7 @@
 	"image": {
 		"image": "Image",
 		"questionScan": "You already have the scans available, do you want to use them?",
-		"labelQuestionScanYes": "Yes, I want to use my previous dingtoi pro scan",
+		"labelQuestionScanYes": "Yes, I want to use my previous Dingtoi pro scan",
 		"labelQuestionScanNo": "No, I don't",
 		"maximumUpload": "Maximum upload {count} photos",
 		"highResolution": "High resolution images",
@@ -720,7 +720,7 @@
 		"buyASecondHandPhoneWithConfidence": "Buy a second hand phone with confidence",
 		"shopNow": "Shop now",
 		"noSurprisesNoHassles": "No surprises no hassles",
-		"dingtoiMakesItEasyToTradeYourPhone": "Dingtoi marketplace makes it easy to buy a pre-owned phone"
+		"DingtoiMakesItEasyToTradeYourPhone": "Dingtoi marketplace makes it easy to buy a pre-owned phone"
 	},
 	"home": {
 		"buy": "Buy",
@@ -768,7 +768,7 @@
 		"share": "Share",
 		"shareContent": "You can share your scan report with anyone. It’s that easy.",
 		"downloadTheAppNow": "Download the App now!",
-		"desliveChatNow": "Contact us via dingtoi@gmail.com",
+		"desliveChatNow": "Contact us via Dingtoi@gmail.com",
 		"createAccount": "Create account"
 	},
 	"deviceDetail": {
@@ -816,7 +816,7 @@
 		"phoneExchange": "Phone exchange",
 		"summary": "Summary",
 		"hasExchange": "Has exchange",
-		"dingtoiRating": "Dingtoi rating",
+		"DingtoiRating": "Dingtoi rating",
 		"order": "Purchase",
 		"thereIsNotCountry": "There is not country",
 		"resultsFor": "Results for",

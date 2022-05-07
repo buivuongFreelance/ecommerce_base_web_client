@@ -55,10 +55,11 @@
 			addresses = addressFilter;
 		} catch (error) {}
 	};
-	const handleSelectAddress = (address) => {
-		values.addressShip = address.Text + ', ' + address.Description;
-		validate('addressShip', values.addressShip);
-		isOpenSearch = false;
+	const handleSelectAddress = (event) => {
+		values.addressShip = event.target.value;
+		// values.addressShip = address.Text + ', ' + address.Description;
+		// validate('addressShip', values.addressShip);
+		// isOpenSearch = false;
 	};
 	const handleBlurAddress = () => {
 		setTimeout(() => {
@@ -74,7 +75,7 @@
 </script>
 
 <div class="relative">
-	<input
+	<!-- <input
 		class="ba b--light-gray br2 fw6 f6 light-silver w-100 h-40-px ph3 input-search"
 		type="search"
 		class:b--red={error}
@@ -83,17 +84,26 @@
 		on:blur={handleBlurAddress}
 		bind:value
 		name="addressShip"
+	/> -->
+	<input
+		class="ba b--light-gray br2 fw6 f6 light-silver w-100 h-40-px ph3 input-search"
+		type="search"
+		class:b--red={error}
+		on:input={handleSelectAddress}
+		bind:this={rootEle}
+		bind:value
+		name="addressShip"
 	/>
 	{#if error}
 		<div class="red fw6 mt2">{error}</div>
 	{/if}
-	{#if isOpenSearch}
+	<!-- {#if isOpenSearch}
 		<PcSearchDropdownAddress
 			{addresses}
 			onSelect={handleSelectAddress}
 			{error}
 		/>
-	{/if}
+	{/if} -->
 </div>
 
 <style>

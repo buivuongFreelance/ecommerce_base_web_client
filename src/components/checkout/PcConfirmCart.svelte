@@ -12,7 +12,6 @@
 	import DimmerModal from '../loading/DimmerModal.svelte';
 	import PcModalSelectShipProvider from './PcModalSelectShipProvider.svelte';
 	import PcModalSelectShipProviderForExchange from './PcModalSelectShipProviderForExchange.svelte';
-	import config from '../../config';
 	import PcConfirmEmailTitle from './PcConfirmEmailTitle.svelte';
 	import PcConfirmAddressShipping from './PcConfirmAddressShipping.svelte';
 

@@ -1,3 +1,17 @@
+<div class="page-loader">
+	<div class="loader">
+		<div class="loader-style-1 panelLoad">
+			<div class="cube-face cube-face-front">D</div>
+			<div class="cube-face cube-face-back">I</div>
+			<div class="cube-face cube-face-left">N</div>
+			<div class="cube-face cube-face-right">G</div>
+			<div class="cube-face cube-face-bottom">T</div>
+			<div class="cube-face cube-face-top">O</div>
+		</div>
+		<span class="cube-face">DINGTOI</span>
+	</div>
+</div>
+
 <style>
 	.page-loader {
 		position: fixed;
@@ -146,17 +160,3 @@
 		}
 	}
 </style>
-
-<div class="page-loader">
-	<div class="loader">
-		<div class="loader-style-1 panelLoad">
-			<div class="cube-face cube-face-front">D</div>
-			<div class="cube-face cube-face-back">I</div>
-			<div class="cube-face cube-face-left">N</div>
-			<div class="cube-face cube-face-right">G</div>
-			<div class="cube-face cube-face-bottom">T</div>
-			<div class="cube-face cube-face-top">O</div>
-		</div>
-		<span class="cube-face">DINGTOI</span>
-	</div>
-</div>

@@ -274,26 +274,6 @@
 	};
 </script>
 
-<style>
-	.btn-width {
-		width: 170px;
-	}
-	.btn-width-back {
-		width: 50px;
-	}
-	.hr {
-		background-color: #e4e6ef;
-		border: 0;
-		height: 1px;
-		margin-left: 250px;
-	}
-	.step {
-		width: 900px;
-		margin: 20px auto 35px auto;
-		padding-left: 53px;
-	}
-</style>
-
 {#if isServerDetailError}
 	<p class="red f4">{$_('error.serverErrorMessage')}</p>
 {:else if isLoading}
@@ -302,7 +282,8 @@
 		primaryColor="#e4e6ef"
 		secondaryColor="#f8f8f8"
 		width={768 - 30}
-		height="200">
+		height="200"
+	>
 		<rect x="0" y="0" rx="3" ry="3" width="45%" height="40" />
 		<rect x="0" y="60" rx="3" ry="3" width="45%" height="20" />
 		<rect x="0" y="100" rx="3" ry="3" width="45%" height="20" />
@@ -322,7 +303,8 @@
 					<PcPostedSellDeviceAdd
 						onUpdate={(value) => validate('sellPrice', value)}
 						bind:bindValue={sellPrice}
-						error={errors.sellPrice} />
+						error={errors.sellPrice}
+					/>
 				</div>
 				<hr class="hr mv5" />
 				<div class="" id="isWarranty">
@@ -332,7 +314,8 @@
 						bind:accessories
 						bind:isWarranty
 						bind:warrantyExpireDate
-						bind:errorAccessories />
+						bind:errorAccessories
+					/>
 				</div>
 			</div>
 			<div class="flex justify-end">
@@ -340,7 +323,8 @@
 					type="button"
 					on:click={handleStep2}
 					class="link bg-white b--dark-blue br2 ba fw6 ttu dark-blue pointer
-						grow btn-width tracked f5">
+						grow btn-width tracked f5"
+				>
 					<div class="flex items-center justify-center h-50-px">
 						<div>{$_('message.next')}</div>
 						<span class="ml3 ir flex items-center"><IconArrowRight /></span>
@@ -353,7 +337,8 @@
 					bind:typeExchange
 					{sellPrice}
 					bind:bindValue={exchangePrice}
-					onNextStep={handleStep3} />
+					onNextStep={handleStep3}
+				/>
 			</div>
 			<div class="mt5 flex justify-end">
 				<div>
@@ -364,16 +349,18 @@
 							step = 1;
 						}}
 						class="link bg-white br2 ba fw6 ttu near-black b--pale-grey pointer
-							flex items-center justify-center grow btn-width-back tracked f5"><div
-							class="flex items-center justify-center h-50-px">
+							flex items-center justify-center grow btn-width-back tracked f5"
+						><div class="flex items-center justify-center h-50-px">
 							<IconArrowLeft />
-						</div></button>
+						</div></button
+					>
 				</div>
 				<button
 					type="button"
 					on:click={handleStep3}
 					class="ml3 link bg-white b--dark-blue br2 ba fw6 ttu dark-blue pointer
-						grow btn-width tracked f5">
+						grow btn-width tracked f5"
+				>
 					<div class="flex items-center justify-center h-50-px">
 						<div>{$_('message.next')}</div>
 						<span class="ml3 ir flex items-center"><IconArrowRight /></span>
@@ -393,16 +380,18 @@
 							step = 2;
 						}}
 						class="link bg-white br2 ba fw6 ttu near-black b--pale-grey pointer
-							flex items-center justify-center grow btn-width-back tracked f5"><div
-							class="flex items-center justify-center h-50-px">
+							flex items-center justify-center grow btn-width-back tracked f5"
+						><div class="flex items-center justify-center h-50-px">
 							<IconArrowLeft />
-						</div></button>
+						</div></button
+					>
 				</div>
 				<button
 					type="button"
 					on:click={handleStep4}
 					class="ml3 link bg-white b--dark-blue br2 ba fw6 ttu dark-blue
-							pointer grow btn-width tracked f5">
+							pointer grow btn-width tracked f5"
+				>
 					<div class="flex items-center justify-center h-50-px">
 						<div>{$_('message.next')}</div>
 						<span class="ml3 ir flex items-center"><IconArrowRight /></span>
@@ -414,7 +403,8 @@
 				<PcDeviceShippingBilling
 					bind:step
 					{isLoadingComplete}
-					onComplete={handleComplete} />
+					onComplete={handleComplete}
+				/>
 			</div>
 		{:else if step === 5}
 			<div class="mt6">
@@ -423,3 +413,23 @@
 		{/if}
 	</div>
 {/if}
+
+<style>
+	.btn-width {
+		width: 170px;
+	}
+	.btn-width-back {
+		width: 50px;
+	}
+	.hr {
+		background-color: #e4e6ef;
+		border: 0;
+		height: 1px;
+		margin-left: 250px;
+	}
+	.step {
+		width: 900px;
+		margin: 20px auto 35px auto;
+		padding-left: 53px;
+	}
+</style>

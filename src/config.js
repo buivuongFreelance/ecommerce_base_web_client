@@ -89,7 +89,7 @@ export default {
 	sellerAcceptedTime: 'seller_accepted_time',
 	sellerCancelAcceptedTime: "seller_accept_proposal_time",
 	timer: "timer",
-	shippoToken: 'shippo_test_ab805d3728348a325c1b567938369aca77372d69',
+	shippoToken: 'shippo_test_931f8d8defd5ca83ed3b5816812dc5edd532f2bd',
 	domainShippo: 'https://api.goshippo.com/',
 	canadaPostAddressCompleteToken: 'XK45-PG26-DG79-CZ32',
 	domainCanadaPostAddressComplete: 'http://ws1.postescanada-canadapost.ca/AddressComplete/Interactive/',
