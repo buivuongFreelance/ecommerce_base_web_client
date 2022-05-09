@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[66],{538:function(t){t.exports=JSON.parse('{"title":{"about":"About"},"about_this_site":"عن هذا الموقع","about_content":["هذه هي صفحة \'حول\'. ليس هناك الكثير هنا."]}')}}]);
