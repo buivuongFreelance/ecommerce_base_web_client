@@ -9,7 +9,7 @@ export const checkProposalsTimeout = (domain, { token, listIds }) => {
 				domain + 'checkProposalsTimeout',
 				{ listIds },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -43,7 +43,7 @@ export const listProposal = (domain, { token, limit, offset, filter, sort, devic
 				domain + 'list',
 				{ limit, offset, filter, sort, deviceId },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -95,7 +95,7 @@ export const updateBuyerReplyProposal = (
 					exchangeDevices,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -147,7 +147,7 @@ export const updateSellerReplyProposal = (
 					exchangeDevices,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -190,7 +190,7 @@ export const addBuyerCreatedProposal = (
 					exchangeDevices,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -221,7 +221,7 @@ export const detailProposal = (domain, { id, token }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + id, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -251,7 +251,7 @@ export const deleteProposal = (domain, { id, token }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.delete(domain + id, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -279,14 +279,14 @@ export const deleteProposal = (domain, { id, token }) => {
 
 export const buyerDeleteProposal = (domain, { proposalId, cartId, token }) => {
 	return new Promise((resolve, reject) => {
-			axios
+		axios
 			.post(
 				domain + '/buyerDeleteProposal',
 				{
 					proposalId, cartId
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -317,7 +317,7 @@ export const sellerDeleteProposal = (domain, { id, token }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.delete(domain + 'seller/' + id, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -350,7 +350,7 @@ export const sellerAcceptProposal = (domain, { id, token }) => {
 				domain + 'sellerAccept',
 				{ id },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -384,7 +384,7 @@ export const buyerCancelAcceptProposal = (domain, { id, token }) => {
 				domain + 'buyerCancelAccept',
 				{ id },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -418,7 +418,7 @@ export const sellerCancelProposal = (domain, { id, token }) => {
 				domain + 'sellerCancelAccept',
 				{ id },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -452,7 +452,7 @@ export const sellerRejectProposal = (domain, { id, token, questions }) => {
 				domain + 'sellerReject',
 				{ id, questions },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -486,7 +486,7 @@ export const buyerAcceptProposal = (domain, { id, token }) => {
 				domain + 'buyerAccept',
 				{ id },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -521,7 +521,7 @@ export const sellerCancelReplyProposal = (domain, { id, token }) => {
 				domain + 'sellerCancelReply',
 				{ id },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},

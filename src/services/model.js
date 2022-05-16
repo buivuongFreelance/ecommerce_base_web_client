@@ -7,7 +7,7 @@ export const testBasicScanModel = (domain, { token, deviceId }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'test/basicScan', { deviceId }, {
-				timeout: 10000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -37,7 +37,7 @@ export const getAmountNotifications = (domain, { token }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'notifications/all', {
-				timeout: 10000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -67,7 +67,7 @@ export const getFaqs = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'faqs', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -86,7 +86,7 @@ export const removeNotification = (
 			.delete(
 				domain + 'notification/' + id,
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -123,7 +123,7 @@ export const updateNotificationRead = (
 				domain + 'notification/' + id,
 				null,
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -157,7 +157,7 @@ export const listNotification = (domain, { token, offset, limit }) => {
 				domain + 'notifications',
 				{ offset, limit },
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -189,7 +189,7 @@ export const removeAllNotification = (domain, { token }) => {
 			.delete(
 				domain + 'notificationAll',
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -219,7 +219,7 @@ export const listQuestionSellerReject = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'questions/sellerReject', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -232,7 +232,7 @@ export const listQuestionBuyerReject = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'questions/buyerReject', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -245,7 +245,7 @@ export const listSettings = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'settings/listAll', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -261,7 +261,7 @@ export const listProvince = (domain, { country_id }) => {
 			.post(domain + 'province/list', {
 				countryId: country_id
 			}, {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -275,7 +275,7 @@ export const getCountry = (domain, { id }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'country/' + id, {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -288,7 +288,7 @@ export const listCountries = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'countries/listAll', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -311,7 +311,7 @@ export const listState = (domain, { countryId }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'states/byCountry', { countryId }, {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -324,7 +324,7 @@ export const listCity = (domain, { countryId, stateCode }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'cities/byStateAndCountry', { countryId, stateCode }, {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -337,7 +337,7 @@ export const getIdCity = (domain, { name }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'city/byName/' + name, {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -350,7 +350,7 @@ export const listAccessories = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'accessonies/listAll', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -367,7 +367,7 @@ export const listModel = (domain, { offset, limit, filter, brandId }) => {
 				domain + 'lists',
 				{ offset, limit, filter, brandId },
 				{
-					timeout: 10000,
+					timeout: 50000,
 				}
 			)
 			.then((response) => {
@@ -389,7 +389,7 @@ export const listModelExclude = (domain, { offset, limit, filter, brandId, devic
 				domain + 'listsExclude',
 				{ offset, limit, filter, brandId, ids },
 				{
-					timeout: 10000,
+					timeout: 50000,
 				}
 			)
 			.then((response) => {
@@ -404,7 +404,7 @@ export const listBrand = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'brands/all', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -418,7 +418,7 @@ export const listCapacity = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'capacities/all', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -431,7 +431,7 @@ export const listRam = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'rams/all', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -444,7 +444,7 @@ export const listColor = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'colors/all', {
-				timeout: 10000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;

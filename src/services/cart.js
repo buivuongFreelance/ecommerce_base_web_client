@@ -5,7 +5,7 @@ export const confirmCart = (domain, { token }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'confirm', null, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -38,7 +38,7 @@ export const listCart = (domain, { token, anonymous }) => {
 				domain + 'list',
 				{ anonymous },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -76,7 +76,7 @@ export const addToCart = (domain, { deviceId, token, anonymous, type }) => {
 					type
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -110,7 +110,7 @@ export const removeCart = (domain, { id, token, anonymous }) => {
 				domain + 'delete',
 				{ id, anonymous },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -144,7 +144,7 @@ export const syncCart = (domain, { token, anonymous }) => {
 				domain + 'anonymous/sync',
 				{ anonymous },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -178,7 +178,7 @@ export const syncWishlist = (domain, { token, anonymous }) => {
 				domain + 'wishlist/anonymous/sync',
 				{ anonymous },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},

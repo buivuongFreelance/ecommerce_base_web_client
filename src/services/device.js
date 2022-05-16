@@ -8,7 +8,7 @@ export const lowerPrice = (domain, { token, deviceId, price }) => {
 				domain + 'lowerPrice',
 				{ deviceId, price },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -42,7 +42,7 @@ export const listCompareDevices = (domain, { token, anonymous, ids, name }) => {
 				domain + 'compare',
 				{ anonymous, ids, name },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -76,7 +76,7 @@ export const listSearchPopup = (domain, { token, anonymous, name }) => {
 				domain + 'search/list',
 				{ anonymous, name },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -110,7 +110,7 @@ export const selectDeviceWaitingForScan = (domain, { token, deviceId, deviceScan
 				domain + 'waitingForScan/selectScan',
 				{ deviceId: deviceId, deviceScanId: deviceScanId },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -144,7 +144,7 @@ export const listScanHistory = (domain, { token, deviceId }) => {
 				domain + 'scan/history',
 				{ deviceId: deviceId },
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -181,7 +181,7 @@ export const listAccountDevicesExclude = (
 				domain + 'listExclude',
 				{ limit, offset, filter, exchangeIds },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -215,7 +215,7 @@ export const listWishlist = (domain, { token, anonymous, limit, offset }) => {
 				domain + 'wishlist/list',
 				{ anonymous, token, limit, offset },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -252,7 +252,7 @@ export const listSearch = (
 				domain + 'search',
 				{ anonymous, token, limit, offset, sort, filter, name },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -286,7 +286,7 @@ export const addWishlist = (domain, { token, anonymous, deviceId }) => {
 				domain + 'wishlist/create',
 				{ anonymous, token, deviceId },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -320,7 +320,7 @@ export const deleteWishlist = (domain, { token, anonymous, id }) => {
 				domain + 'wishlist/remove',
 				{ anonymous, token, id },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -354,7 +354,7 @@ export const availableDetail = (domain, { id, token, anonymous }) => {
 				domain + 'available/' + id,
 				{ anonymous },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -393,7 +393,7 @@ export const relatedList = (domain, { id, limit, brand, token, anonymous }) => {
 					anonymous,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -427,7 +427,7 @@ export const newList = (domain, { token, anonymous, limit, offset, sort, filter 
 				domain + 'newList',
 				{ anonymous, token, limit, offset, sort, filter },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -463,7 +463,7 @@ export const listFeaturedDevices = (domain, { limit, anonymous, token }) => {
 					anonymous,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -494,7 +494,7 @@ export const deletePostedDevice = (domain, { token, postedId }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.delete(domain + 'waitingforscan/' + postedId, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -546,7 +546,7 @@ export const updateDevicePosted = (
 					isWarranty,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -602,7 +602,7 @@ export const updateDeviceWaitingForScan = (
 					isImage: isImage ? true : false,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -633,7 +633,7 @@ export const listDeviceImage = (domain, { token, deviceId }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + deviceId + '/images', {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -663,7 +663,7 @@ export const deleteDeviceImage = (domain, { token, deviceId }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.delete(domain + 'image/' + deviceId, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -698,7 +698,7 @@ export const deleteImage = (domain, { url }) => {
 					name: url,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 				}
 			)
 			.then((response) => {
@@ -735,7 +735,7 @@ export const addDeviceImage = (domain, { token, deviceId, url }) => {
 					thumbnailPublicId: null,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -769,7 +769,7 @@ export const checkImei = (domain, { token, imei }) => {
 				domain + 'check/imei',
 				{ imei },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -806,7 +806,7 @@ export const addDevice = (
 				domain + 'add',
 				{ modelId, ramId, capacityId, colorId, physicalGrading, imei },
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -843,7 +843,7 @@ export const editDevice = (
 				domain + 'update/' + id,
 				{ ramId, capacityId, colorId, physicalGrading },
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -877,7 +877,7 @@ export const listDevice = (domain, { token, offset, limit, filter, sort }) => {
 				domain + 'list',
 				{ offset, limit, filter, sort },
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -908,7 +908,7 @@ export const detailDevice = (domain, { token, id }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'detail/' + id, {
-				timeout: 10000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -938,7 +938,7 @@ export const deleteDevice = (domain, { token, id }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.delete(domain + id, {
-				timeout: 10000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -976,7 +976,7 @@ export const listDeviceByDeviceTags = (domain, { token, deviceTags }) => {
 				domain + 'tags/listDevice',
 				{ ids },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -1009,7 +1009,7 @@ export const listDeviceTags = (domain, { token }) => {
 			.get(
 				domain + 'tags',
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -1043,7 +1043,7 @@ export const addDeviceTag = (domain, { token, modelId }) => {
 				domain + 'tags',
 				{ modelId },
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -1076,7 +1076,7 @@ export const removeDeviceTag = (domain, { token, id }) => {
 			.delete(
 				domain + 'tags/' + id,
 				{
-					timeout: 10000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},

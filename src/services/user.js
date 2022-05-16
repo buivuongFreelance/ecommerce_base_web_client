@@ -1,17 +1,17 @@
 import axios from 'axios';
 import { auth } from '../stores.js';
 
-export const wallet = (domain, {token}) => {
+export const wallet = (domain, { token }) => {
 	return new Promise((resolve, reject) => {
 		axios
-			.get(domain + 'wallet',{
-				timeout: 20000,
+			.get(domain + 'wallet', {
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
 			})
 			.then((response) => {
-				const {obj} = response.data;
+				const { obj } = response.data;
 				resolve(obj);
 			})
 			.catch(error => {
@@ -23,20 +23,20 @@ export const wallet = (domain, {token}) => {
 	});
 }
 
-export const resetPassword = (domain, {token, password}) => {
+export const resetPassword = (domain, { token, password }) => {
 	return new Promise((resolve, reject) => {
 		axios
-			.post(domain + 'resetPassword',{
-				password, 
+			.post(domain + 'resetPassword', {
+				password,
 				token,
-			},{
-				timeout: 20000,
+			}, {
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
 			})
 			.then((response) => {
-				const {obj} = response.data;
+				const { obj } = response.data;
 				resolve(obj);
 			})
 			.catch(error => {
@@ -48,20 +48,20 @@ export const resetPassword = (domain, {token, password}) => {
 	});
 }
 
-export const changePassword = (domain, {token, currentPassword, newPassword}) => {
+export const changePassword = (domain, { token, currentPassword, newPassword }) => {
 	return new Promise((resolve, reject) => {
 		axios
-			.post(domain + 'changePassword',{
-				currentPassword, 
+			.post(domain + 'changePassword', {
+				currentPassword,
 				newPassword
-			},{
-				timeout: 20000,
+			}, {
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
 			})
 			.then((response) => {
-				const {obj} = response.data;
+				const { obj } = response.data;
 				resolve(obj);
 			})
 			.catch(error => {
@@ -73,27 +73,27 @@ export const changePassword = (domain, {token, currentPassword, newPassword}) =>
 	});
 }
 
-export const createAndUpdateAccount = (domain, {token, values}) => {
+export const createAndUpdateAccount = (domain, { token, values }) => {
 	return new Promise((resolve, reject) => {
 		axios
-			.post(domain + 'info/createAndUpdate',{
-				firstName: values.firstName, 
-				lastName: values.lastName, 
+			.post(domain + 'info/createAndUpdate', {
+				firstName: values.firstName,
+				lastName: values.lastName,
 				idNumber: values.idNumber,
-				dob: values.dob, 
-				gender: values.gender, 
-				countryId: values.country, 
-				postalCode: values.postalCode, 
-				address: values.address, 
+				dob: values.dob,
+				gender: values.gender,
+				countryId: values.country,
+				postalCode: values.postalCode,
+				address: values.address,
 				province: values.province
-			},{
-				timeout: 20000,
+			}, {
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
 			})
 			.then((response) => {
-				const {obj} = response.data;
+				const { obj } = response.data;
 				resolve(obj);
 			})
 			.catch(error => {
@@ -112,17 +112,17 @@ export const createAndUpdateAccount = (domain, {token, values}) => {
 			});
 	});
 }
-export const detailedAccount = (domain, {token}) => {
+export const detailedAccount = (domain, { token }) => {
 	return new Promise((resolve, reject) => {
 		axios
-			.get(domain + 'info/detail',{
-				timeout: 20000,
+			.get(domain + 'info/detail', {
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
 			})
 			.then((response) => {
-				const {obj} = response.data;
+				const { obj } = response.data;
 				resolve(obj);
 			})
 			.catch(error => {
@@ -145,7 +145,7 @@ export const registerTracing = (domain) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'loginTracing', null, {
-				timeout: 20000,
+				timeout: 50000,
 			})
 			.then((response) => {
 				const { obj } = response.data;
@@ -162,7 +162,7 @@ export const checkEmail = (domain, { email }) => {
 				domain + 'emailChecking',
 				{ email },
 				{
-					timeout: 10000,
+					timeout: 50000,
 				}
 			)
 			.then(resolve)
@@ -177,7 +177,7 @@ export const register = (domain, { email, password }) => {
 				domain + 'registration',
 				{ email, password },
 				{
-					timeout: 10000,
+					timeout: 50000,
 				}
 			)
 			.then(resolve)
@@ -192,7 +192,7 @@ export const forgotPassword = (domain, { email }) => {
 				domain + 'forgotPassword',
 				{ email },
 				{
-					timeout: 10000,
+					timeout: 50000,
 				}
 			)
 			.then(resolve)
@@ -207,7 +207,7 @@ export const login = (domain, { email, password }) => {
 				domain + 'login',
 				{ email, password },
 				{
-					timeout: 10000,
+					timeout: 50000,
 				}
 			)
 			.then(resolve)
@@ -222,7 +222,7 @@ export const loginWithGoogle = (domain, { email }) => {
 				domain + 'loginGmail',
 				{ email },
 				{
-					timeout: 10000,
+					timeout: 50000,
 				}
 			)
 			.then(resolve)
@@ -237,7 +237,7 @@ export const loginWithFacebook = (domain, { email }) => {
 				domain + 'loginFacebook',
 				{ email },
 				{
-					timeout: 10000,
+					timeout: 50000,
 				}
 			)
 			.then(resolve)
@@ -249,7 +249,7 @@ export const logout = (domain, { token }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'logout', null, {
-				timeout: 10000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},

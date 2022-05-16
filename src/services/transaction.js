@@ -6,7 +6,7 @@ export const apiTestScanBuyerReject = (domain, { token, transactionCode }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'test/scanBuyerReject', { transactionCode }, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -37,7 +37,7 @@ export const apiTestScanBuyerConfirm = (domain, { token, transactionCode }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'test/scanBuyerConfirm', { transactionCode }, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -67,7 +67,7 @@ export const apiTestScanSellerConfirm = (domain, { token, transactionCode }) => 
 	return new Promise((resolve, reject) => {
 		axios
 			.post(domain + 'test/scanSellerConfirm', { transactionCode }, {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -101,7 +101,7 @@ export const getShippingAndBilling = (domain, { token }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'shippingAndBilling', {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -137,7 +137,7 @@ export const getPaymentHistory = (domain, { token }) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(domain + 'paymentHistory', {
-				timeout: 20000,
+				timeout: 50000,
 				headers: {
 					Authorization: 'Bearer ' + token,
 				},
@@ -194,7 +194,7 @@ export const createShipping = (
 					extension,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -253,7 +253,7 @@ export const updateShipping = (
 					extension,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -311,7 +311,7 @@ export const createBilling = (
 					province
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -370,7 +370,7 @@ export const updateBilling = (
 					extension,
 				},
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -538,7 +538,7 @@ export const listOrder = (domain, { token, limit, offset, sort, filter }) => {
 				domain + 'orders',
 				{ token, limit, offset, sort, filter },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -571,7 +571,7 @@ export const detailOrder = (domain, { token, orderId }) => {
 			.get(
 				domain + 'order/' + orderId,
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -603,7 +603,7 @@ export const detailTransaction = (domain, { token, id }) => {
 			.get(
 				domain + 'transaction/' + id,
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -635,7 +635,7 @@ export const detailSale = (domain, { token, id }) => {
 			.get(
 				domain + 'orderSeller/' + id,
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -668,7 +668,7 @@ export const listOrderSelling = (domain, { token, limit, offset, filter, sort })
 				domain + 'order/sellings',
 				{ token, limit, offset, filter, sort },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -701,7 +701,7 @@ export const listTransactionsSeller = (domain, { token, limit, offset, filter, s
 				domain + 'transactions/seller',
 				{ token, limit, offset, filter, sort },
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						Authorization: 'Bearer ' + token,
 					},
@@ -738,7 +738,7 @@ export const validationAddress = (domain, { token, keyword }) => {
 				domain + 'AutoComplete/v1.00/json3.ws',
 				params,
 				{
-					timeout: 20000,
+					timeout: 50000,
 					headers: {
 						'Content-Type': 'application/x-www-form-urlencoded'
 					},
