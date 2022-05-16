@@ -87,13 +87,12 @@
 	<div class="footer pv6 lazy-bg" data-bg="images/bg-footer.png">
 		<div class="mw10 center tc">
 			<div>
-				<a href="/">
+				<!-- <a href="/">
 					<h2>Logo</h2>
-				</a>
-				<!-- <a href="/"><img
-						src="images/com_logo_white.png"
-						alt="dingtoi"
-						class="logo" /></a> -->
+				</a> -->
+				<a href="/"
+					><img src="images/com_logo_white.png" alt="dingtoi" class="logo" /></a
+				>
 			</div>
 			<div class="flex justify-center ttu mt5">
 				<a class="fw6 white link dim pr4" href="/">{$_('nav.home')}</a>
@@ -243,15 +242,15 @@
 					/>
 				</div>
 			</div>
-			<div class="text-stroke">Tomrot Corporation 2022.</div>
+			<div class="text-stroke">Dingtoi Corporation 2022.</div>
 		</div>
 	</div>
 </div>
 
 <style>
-	/* .logo {
+	.logo {
 		width: 200px;
-	} */
+	}
 	.text-stroke {
 		-webkit-text-stroke: 1px #fff;
 	}

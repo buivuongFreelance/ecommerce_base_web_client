@@ -66,11 +66,11 @@
 		{/if}
 	</div>
 </div>
-<div class="mw10 pt5 ph3 flex justify-center center">
+<!-- <div class="mw10 pt5 ph3 flex justify-center center">
 	<div class="w-60">
 		<PcInputImeiReadOnly label={$_('device.yourIMEI')} />
 	</div>
-</div>
+</div> -->
 <div class="mw10 center">
 	<div>
 		<PcInfoAndGradeDeviceDetail {handleGotoEdit} {handleDelete} />

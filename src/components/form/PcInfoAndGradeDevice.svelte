@@ -11,6 +11,7 @@
 		fieldColor,
 		fieldRam,
 		fieldPhysicalGrading,
+		fieldBrand,
 		infoImei,
 		auth,
 	} from '../../stores';
@@ -26,6 +27,7 @@
 
 	let values = {
 		ram: '',
+		brand: '',
 		color: '',
 		capacity: '',
 		physicalGrading: '',
@@ -36,11 +38,21 @@
 
 	const schema = yup.object().shape({
 		ram: yup.string($_('error.string')).required($_('error.required')),
+		brand: yup.string($_('error.string')).required($_('error.required')),
 		color: yup.string($_('error.string')).required($_('error.required')),
 		capacity: yup.string($_('error.string')).required($_('error.required')),
 		physicalGrading: yup
 			.string($_('error.string'))
 			.required($_('error.required')),
+	});
+
+	const unsubscribeBrand = fieldBrand.subscribe((value) => {
+		values.brand = value;
+		if (value) {
+			if (mounted) {
+				validate('brand');
+			}
+		}
 	});
 
 	const unsubscribeCapacity = fieldCapacity.subscribe((value) => {
@@ -87,6 +99,7 @@
 		unsubscribeColor();
 		unsubscribeRam();
 		unsubscribePhysicalGrading();
+		unsubscribeBrand();
 	});
 
 	const addDevice = () => {
@@ -97,11 +110,12 @@
 		return new Promise((resolve, reject) => {
 			apiAddDevice(domainDevice, {
 				modelId: $infoImei.model_id,
-				imei: $infoImei.imei,
+				imei: $infoImei.model,
 				capacityId: $fieldCapacity,
 				ramId: $fieldRam,
 				colorId: $fieldColor,
 				physicalGrading: $fieldPhysicalGrading,
+				brandId: $fieldBrand,
 				token,
 			})
 				.then(() => {
@@ -168,23 +182,12 @@
 	};
 </script>
 
-<style>
-	.max-width-50 {
-		max-width: 50%;
-	}
-	.mw150 {
-		min-width: 150px;
-	}
-	summary:focus {
-		outline: none;
-	}
-</style>
-
 <form
 	class="w-100"
 	autocomplete="off"
 	on:submit|preventDefault={handleSubmit}
-	novalidate>
+	novalidate
+>
 	<div class="flex b--light-gray br2 ba mt5">
 		<div class="w-50 pr5 b--light-gray br pb5">
 			<PcBasicInfo {errors} />
@@ -233,7 +236,8 @@
 			<button
 				type="button"
 				class="br2 bg-dark-blue b--dark-blue ba grow ttu white h-60-px fw6 w4
-					tracked pointer">
+					tracked pointer"
+			>
 				<div class="flex w-100 items-center justify-center">
 					<LoadingDefault />
 				</div>
@@ -242,9 +246,22 @@
 			<button
 				type="submit"
 				class="br2 bg-dark-blue b--dark-blue ba grow ttu white h-60-px fw6 w4
-					tracked pointer">
+					tracked pointer"
+			>
 				{$_('device.createDevice')}
 			</button>
 		{/if}
 	</div>
 </form>
+
+<style>
+	.max-width-50 {
+		max-width: 50%;
+	}
+	.mw150 {
+		min-width: 150px;
+	}
+	summary:focus {
+		outline: none;
+	}
+</style>

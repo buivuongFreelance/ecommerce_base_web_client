@@ -10,6 +10,7 @@ export const isVendor = writable('isVendor', false);
 export const fieldCapacity = localWritable('');
 export const fieldRam = localWritable('');
 export const fieldColor = localWritable('');
+export const fieldBrand = localWritable('');
 export const fieldPhysicalGrading = localWritable('');
 
 export const infoImei = localWritable(null);

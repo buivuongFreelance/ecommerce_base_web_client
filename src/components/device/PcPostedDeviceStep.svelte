@@ -10,10 +10,10 @@
 			step: 1,
 			name: $_('home.sell'),
 		},
-		{
-			step: 2,
-			name: $_('home.exchange'),
-		},
+		// {
+		// 	step: 2,
+		// 	name: $_('home.exchange'),
+		// },
 		{
 			step: 3,
 			name: $_('message.uploadPhotos'),
@@ -49,7 +49,9 @@
 				>
 					{#if step > st.step}
 						<IconCheck />
-					{:else}{st.step}{/if}
+					{:else}
+						{st.step === 1 ? 1 : st.step - 1}
+					{/if}
 				</div>
 				{#if st.step !== 5}
 					<div

@@ -15,7 +15,7 @@
 	let visible = false;
 	let isOpenUserAgreement = false;
 
-	export let handleGotoEdit;
+	// export let handleGotoEdit;
 	export let handleDelete;
 
 	onMount(() => {
@@ -33,55 +33,48 @@
 	};
 </script>
 
-<style>
-	.max-width-50 {
-		max-width: 50%;
-	}
-	.mw150 {
-		min-width: 150px;
-	}
-	summary:focus {
-		outline: none;
-	}
-	.btn-skip {
-		width: 200px;
-		border-top-right-radius: 5px;
-	}
-</style>
-
 {#if isOpenUserAgreement}
 	<Portal target={document.getElementById('portal')}>
 		<DimmerModal
 			type="modal"
 			onClick={() => {
 				isOpenUserAgreement = false;
-			}} />
+			}}
+		/>
 		<PcModalUserAgreement
 			item={$infoImei}
 			onClose={() => {
 				isOpenUserAgreement = false;
-			}} />
+			}}
+		/>
 	</Portal>
 {/if}
 {#if visible}
 	<div
 		class="h-60-px white bg-dark-blue mt5 b--light-gray br--top br2 flex
-			items-center f4 fw6 pl4 justify-between">
+			items-center f4 fw6 pl4 justify-between"
+	>
 		<div>{$_('device.basicInfo')}</div>
 		{#if $infoImei.status === config.device.created}
 			<button
 				on:click={handlePostDevice}
-				class="btn-skip link fw6 h-60-px ba white bg-blue b--blue pointer">{$_('device.postDevice')}</button>
+				class="btn-skip link fw6 h-60-px ba white bg-blue b--blue pointer"
+				>{$_('device.postDevice')}</button
+			>
 		{:else if $infoImei.status == config.device.inTransaction}
 			{#if $infoImei.charge_stripe == null && $infoImei.transaction_type != config.buyer}
 				{#if $infoImei.transaction_email_buyer != $auth.email}
 					<button
 						on:click={() => goto(`/my-sales/${$infoImei.order_seller_id}`)}
-						class="btn-skip link fw6 h-60-px ba white bg-blue b--blue pointer">{$_('order.viewSale')}</button>
+						class="btn-skip link fw6 h-60-px ba white bg-blue b--blue pointer"
+						>{$_('order.viewSale')}</button
+					>
 				{:else}
 					<button
 						on:click={() => goto(`/my-purchases/${$infoImei.order_id}`)}
-						class="btn-skip link fw6 h-60-px ba white bg-blue b--blue pointer">{$_('order.viewOrder')}</button>
+						class="btn-skip link fw6 h-60-px ba white bg-blue b--blue pointer"
+						>{$_('order.viewOrder')}</button
+					>
 				{/if}
 			{/if}
 		{/if}
@@ -121,21 +114,38 @@
 
 		{#if $infoImei.status !== config.device.inTransaction}
 			<div class="flex justify-end mt6 mb5 pr4">
-				<button
+				<!-- <button
 					type="button"
 					on:click={handleGotoEdit}
 					class="br2 bg-yellow b--yellow ba grow ttu h-50-px fw6 w-20 tracked mr3
 					near-black pointer">
 					{$_('device.editDevice')}
-				</button>
+				</button> -->
 				<button
 					type="button"
 					on:click={handleDelete}
 					class="br2 bg-red b--red ba grow ttu h-50-px fw6 w-20 tracked ml3 white
-					pointer">
+					pointer"
+				>
 					{$_('device.removeDevice')}
 				</button>
 			</div>
 		{/if}
 	</div>
 {/if}
+
+<style>
+	.max-width-50 {
+		max-width: 50%;
+	}
+	.mw150 {
+		min-width: 150px;
+	}
+	summary:focus {
+		outline: none;
+	}
+	.btn-skip {
+		width: 200px;
+		border-top-right-radius: 5px;
+	}
+</style>

@@ -20,11 +20,11 @@
 <div class="fixed z-max wrapper" transition:fade>
 	<div class="w-100 bg-white container">
 		<div class="flex items-center justify-between ph6 pt5">
-			<!-- <img
+			<img
 				src="https://cdn.zeplin.io/5f01bb9c4156b41352be3d7f/assets/1EBB74C1-B413-46E4-B487-DFE926285D31.png"
 				width="50px"
-				alt="logo" /> -->
-			<h2>Logo</h2>
+				alt="logo"
+			/>
 			<div class="pointer flex items-center" on:click={onClose}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -41,8 +41,8 @@
 		</div>
 		<div class="ph6 content pv5">
 			<div>
-				1.1 These Terms of Service (the “Terms”) apply to your use of the Tomrot
-				API service (the “Service”) and any and all data, text, images,
+				1.1 These Terms of Service (the “Terms”) apply to your use of the
+				Dingtoi API service (the “Service”) and any and all data, text, images,
 				trademarks and logos, software, documents and other materials
 				transmitted via the Service (the “Content”), including without
 				limitation any application programming interface offered through the
@@ -50,8 +50,8 @@
 				RESPONSIBILITIES; PLEASE READ IT CAREFULLY. IF YOU DO NOT ACCEPT ALL OF
 				THE TERMS, YOU SHOULD NOT USE THIS SERVICE. Reference to the “Service”
 				in these Terms includes the Content and the API, unless stated
-				otherwise. 1.2 Please read these Terms carefully. Tomrot.com, LLC
-				(“Tomrot,” “we,” or “us”) provides the Service to you subject to the
+				otherwise. 1.2 Please read these Terms carefully. Dingtoi.com, LLC
+				(“Dingtoi,” “we,” or “us”) provides the Service to you subject to the
 				Terms. By registering for or using the Service, you agree to these Terms
 				together with the Best Buy Developer API Branding Guidelines, the Terms
 				and Conditions, Privacy Policy and California Privacy Rights that govern

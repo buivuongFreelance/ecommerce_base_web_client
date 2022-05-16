@@ -217,7 +217,7 @@
 			}
 			//	flag = flagAccess;
 			if (flag && flagAccess) {
-				step = 2;
+				step = 3;
 				animateScroll.scrollToTop();
 			} else {
 				animateScroll.scrollTo({

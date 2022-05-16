@@ -2,7 +2,6 @@ import axios from 'axios';
 import { auth } from '../stores.js';
 
 export const testBasicScanModel = (domain, { token, deviceId }) => {
-	console.log('asasas', domain, deviceId);
 
 	return new Promise((resolve, reject) => {
 		axios

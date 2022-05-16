@@ -46,15 +46,16 @@
 		imei: yup
 			.string($_('error.string'))
 			.required($_('error.required'))
-			.min(15, $_('error.equalString', { values: { count: 15 } }))
-			.max(15, $_('error.equalString', { values: { count: 15 } }))
-			.test('checkImei', $_('error.imeiFailed'), (value) => {
-				if (value) return nodeImei.isValid(value);
-				else return true;
-			}),
+			.nullable(),
+		// .min(15, $_('error.equalString', { values: { count: 15 } }))
+		// .max(15, $_('error.equalString', { values: { count: 15 } })),
+		// .test('checkImei', $_('error.imeiFailed'), (value) => {
+		// 	if (value) return nodeImei.isValid(value);
+		// 	else return true;
+		// }),
 	});
 	onDestroy(() => {
-		infoImei.set(null);
+		infoImei.set('');
 	});
 	const checkImei = () => {
 		isLoadingImei = true;
@@ -103,7 +104,10 @@
 	const handleSubmit = async () => {
 		try {
 			await schema.validate(values, { abortEarly: false });
-			await checkImei();
+			infoImei.set({
+				model: values.imei,
+			});
+			// await checkImei();
 			onSuccess();
 		} catch (error) {
 			if (error) {
@@ -121,13 +125,13 @@
 				autocomplete="off"
 				class="input-reset bg-light-gray ba br2 pv3 ph4 h-60-px input-imei bw2
 					b--light-gray f4 fw5 w-100 tc"
-				type="number"
 				name="imei"
 				class:b--red={errors.imei}
 				bind:value={values.imei}
 				on:input={validate}
 				on:blur={validate}
-				placeholder={$_('device.imeiPlaceholder')} />
+				placeholder={$_('device.imeiPlaceholder')}
+			/>
 			{#if errors.imei}
 				<div class="red fw6 mt2" transition:fade>{errors.imei}</div>
 			{/if}
@@ -135,7 +139,8 @@
 				<button
 					type="submit"
 					class="br2 bg-dark-blue b--dark-blue ba grow ttu white h-60-px fw6 w4
-						tracked mt5 pointer mb5">
+						tracked mt5 pointer mb5"
+				>
 					<div class="flex w-100 items-center justify-center">
 						<LoadingDefault />
 					</div>
@@ -145,7 +150,8 @@
 				<button
 					type="submit"
 					class="br2 bg-dark-blue b--dark-blue ba grow ttu white h-60-px fw6 w4
-						tracked mt5 pointer">
+						tracked mt5 pointer"
+				>
 					{$_('device.getDeviceInformation')}
 				</button>
 			{/if}
@@ -156,17 +162,18 @@
 		autocomplete="off"
 		class="b--dashed input-reset bg-light-gray ba br2 pv3 ph4 h-60-px input-imei
 			bw2 b--light-gray fw5 w-100 tc"
-		type="number"
 		name="imei"
 		readonly
 		bind:value={values.imei}
-		placeholder={$_('device.imeiPlaceholder')} />
+		placeholder={$_('device.imeiPlaceholder')}
+	/>
 	<div class="flex justify-center">
 		<button
 			type="button"
 			class="br2 bg-dark-blue b--dark-blue ba grow ttu white h-60-px fw6 w4
 				tracked mt5"
-			on:click={onChangeImei}>
+			on:click={onChangeImei}
+		>
 			{$_('imei.changeImei')}
 		</button>
 	</div>

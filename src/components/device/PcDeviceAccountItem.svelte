@@ -20,7 +20,7 @@
 	import PcButtonViewSale from '../button/PcButtonViewSale.svelte';
 
 	export let item;
-	export let onDeleteSuccess;
+	// export let onDeleteSuccess;
 
 	export let selectedItem = null;
 	export let testBasicScan = null;
@@ -108,7 +108,7 @@
 				{item.capacity}
 				{$_('label.GB')}</a
 			>
-			<small class="light-silver">{item.imei}</small>
+			<small class="light-silver">{item.brand_name}</small>
 		</td>
 		<td class="">
 			<span class="dark-blue i">
@@ -151,14 +151,14 @@
 							/>
 						{/if}
 					{/if}
-					<PcDropdownMoreMenuAccoutItemDevice
+					<!-- <PcDropdownMoreMenuAccoutItemDevice
 						id={item.id}
 						status={item.status}
 						onSuccess={onDeleteSuccess}
 						bind:isOpenQrCode
 						onTestBasicScan={() => handleTestBasicScan(item)}
 						onSelectLowerPrice={() => handleSelectedItem(item)}
-					/>
+					/> -->
 				{:else if item.transaction_type == config.buyer}
 					<PcButtonTransactionProcessing
 						onClickButton={() =>

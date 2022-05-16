@@ -203,7 +203,7 @@
 				<img src="images/google-social.png" alt="google" width="50px" />
 			</div>
 		{/if}
-		{#if isLoadingFacebook}
+		<!-- {#if isLoadingFacebook}
 			<div class="link grow ml1 h-50-px flex items-center justify-center">
 				<LoadingDefault color="#3b5998" size="40" />
 			</div>
@@ -211,6 +211,6 @@
 			<div class="link grow ml1 pointer" on:click={loginWithFacebook}>
 				<img src="images/facebook-social.png" alt="facebook" width="50px" />
 			</div>
-		{/if}
+		{/if} -->
 	</div>
 {/if}

@@ -798,13 +798,13 @@ export const checkImei = (domain, { token, imei }) => {
 
 export const addDevice = (
 	domain,
-	{ token, modelId, ramId, capacityId, colorId, physicalGrading, imei }
+	{ token, modelId, ramId, capacityId, colorId, brandId, physicalGrading, imei }
 ) => {
 	return new Promise((resolve, reject) => {
 		axios
 			.post(
 				domain + 'add',
-				{ modelId, ramId, capacityId, colorId, physicalGrading, imei },
+				{ modelId, ramId, capacityId, colorId, brandId, physicalGrading, imei },
 				{
 					timeout: 50000,
 					headers: {
